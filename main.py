@@ -1,5 +1,5 @@
 import webapp2
-import json
+from webapp2_extras import json
 
 class HelloWebApp2(webapp2.RequestHandler):
 	def get(self):
@@ -7,7 +7,7 @@ class HelloWebApp2(webapp2.RequestHandler):
 		response = {
 			'message': 'Hello, webapp2!'
 		}
-		self.response.out.write(json.dumps(response))
+		self.response.out.write(json.encode(response))
 
 app = webapp2.WSGIApplication([
 	('/', HelloWebApp2),
